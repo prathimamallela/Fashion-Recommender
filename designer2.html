@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fashion Recommender 👗</title>
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+        }
+        .box {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>Fashion Recommender👗</h2>
+        <label for="weather">Choose the weather:</label><br>
+        <select id="weather">
+            <option value="sunny">Sunny</option>
+            <option value="cold">Cold</option>
+            <option value="rainy">Rainy</option>
+        </select><br><br>
+
+        <label for="occasion">Choose the occasion:</label><br>
+        <select id="occasion">
+            <option value="casual">Casual</option>
+            <option value="formal">Formal</option>
+            <option value="party">Party</option>
+        </select><br><br>
+
+        <button onclick="recommend()">Get Recommendation</button>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function recommend() {
+            var weather = document.getElementById("weather").value;
+            var occasion = document.getElementById("occasion").value;
+            var result = "";
+
+            if (weather === "sunny" && occasion === "casual") {
+                result = '👗 Light Dress and 👡 Sandals';
+            } else if (weather === "cold" && occasion === "formal") {
+                result = '👖 Jeans, 🧥 Jacket, and 🥾 Boots';
+            } else if (weather === "rainy" && occasion === "party") {
+                result = '☔ Raincoat, Waterproof Boots, and Umbrella';
+            } else {
+                result = "Wear comfortable clothes suited for the weather and occasion.";
+            }
+
+            document.getElementById("result").innerText = result;
+        }
+    </script>
+</body>
+</html>
